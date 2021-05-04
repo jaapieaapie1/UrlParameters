@@ -1,7 +1,6 @@
 package UrlParameters
 
 import (
-	"fmt"
 	"regexp"
 	"strings"
 )
@@ -13,7 +12,6 @@ func CreatePath(rawPath string) *Path {
 	}
 	pattern := ""
 	for i, pathPiece := range pathPieces {
-		fmt.Println(pathPiece)
 		if a, _ := regexp.MatchString("{.*}", pathPiece); a {
 			param := Parameter{
 				Name: strings.TrimRight(strings.TrimLeft(pathPiece, "{"), "}"),
